@@ -30,28 +30,64 @@ class Rectangle(Shape):
 
 
 # TODO
-# 1. Fix naming convention according following PEPs.
+# 1. (Done)Fix naming convention according following PEPs.
 #    https://peps.python.org/pep-0008/#naming-conventions
 # 2. What is exception? What is the common error handling in Python?
+# 當執行時遇到error, 其檢測到的error就是例外 ex:Syntactical Error/Logical error/Run Time Error
+
+# Common error handling-Except Handling:try to execute the statement, otherwise we'll print except block (only when we have an error)
+a = 5
+b = 0
+try:
+    print("Open")
+    print(a/b)    
+    k = int(input("Please enter a number"))
+    print(k)
+
+except ZeroDivisionError as e:
+    print("You cannot divided zero")
+
+except ValueError as e:
+    print("You cannot enter value other than integer")
+
+except Exception as e:
+    print("Something went wrong")
+
+finally:
+    print("Bye")
+
 # 3. Can Shape class still be instanciated? If so, how to make it raise exception when the user try to instanciate?
 
+#Shape class cann't be instanciated b/c it is a abstract class. Regarding how to make it raise exception, please find as follows:
 
+
+# 4.
 def division_20_by(x) -> float:
     # TODO - 2
     # hint: what is try-except block
     return 20 / x
+try: 
+    object3 = division_20_by(0)
+
+except Exception as e:
+    print("You can't divide zero")
 
 
 if __name__ == "__main__":
     # TODO - 1
-    Object1 = Square(3)
-    Answer1 = Object1.area()
-    print(Answer1)
+    object1 = Square(3)
+    answer1 = object1.area()
+    print(answer1)
 
-    Object2 = Rectangle(3, 4)
-    Answer2 = Object2.area()
-    print(Answer2)
+    object2 = Rectangle(3, 4)
+    answer2 = object2.area()
+    print(answer2)
 
     # TODO - 3
     # Try to make following expression raise exception
-    s = Shape()
+    try:
+        s = Shape(2)
+        print(s)
+
+    except Exception as e:
+        print("Shape class cann't be instanciated")

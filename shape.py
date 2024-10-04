@@ -65,13 +65,15 @@ finally:
 def division_20_by(x) -> float:
     # TODO - 2
     # hint: what is try-except block
-    return 20 / x
-try: 
-    object3 = division_20_by(0)
+    try: 
+        return 20 / x
 
-except Exception as e:
-    print("You can't divide zero")
+    except ZeroDivisionError as e:
+        print("You can't divide zero")
 
+Object3 = division_20_by(0)
+print(Object3)
+#!Your indentation should be within the function. Correct answer would be following code. Please review and document all your unknowns.
 
 if __name__ == "__main__":
     # TODO - 1
@@ -85,9 +87,16 @@ if __name__ == "__main__":
 
     # TODO - 3
     # Try to make following expression raise exception
-    try:
-        s = Shape(2)
-        print(s)
+    
+    from abc import ABC, abstractmethod
+    class Shape(ABC):
+        def area(self):
+            pass
+        try:
+            object4 = Shape(ABC)
+            print(object4)
 
-    except Exception as e:
-        print("Shape class cann't be instanciated")
+        except TypeError as e:
+            print("Shape class cann't be instanciated")
+
+

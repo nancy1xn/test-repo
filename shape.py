@@ -92,11 +92,16 @@ if __name__ == "__main__":
     class Shape(ABC):
         def area(self):
             pass
-        try:
-            object4 = Shape(ABC)
-            print(object4)
+    try:
+        object4 = Shape(ABC)
+        print(object4)
 
-        except TypeError as e:
-            print("Shape class cann't be instanciated")
+    except TypeError as e:
+        print("Shape class cann't be instanciated")
+    
+    Shape()
+#異常捕獲：
+#如果將 try-except 塊放在類的內部，當解釋器嘗試定義這個類時，就會執行類內的代碼。由於 Shape 是一個抽象類，直接實例化它會導致 TypeError，從而觸發異常。
+# 在類外處理：如果將異常處理放在類的外部，可以在實際嘗試實例化這個類時捕獲異常。這樣可以確保只有在嘗試創建實例時才會檢查錯誤，這樣類本身的定義不會受到影響。
 
 
